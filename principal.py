@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory, url_for
+from flask import Flask, render_template, send_from_directory
 from app.controllers.dashboard import dashboard_bp
 from app.controllers.uploads import uploads_bp
 import os
