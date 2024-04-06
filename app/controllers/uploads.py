@@ -62,12 +62,14 @@ def uploaded_images():
 def list_bucket_images(bucket_name):
   response = s3.list_objects_v2(Bucket=bucket_name, MaxKeys=20)
   image_names = []
-  for obj in response.get('Contents', []):
+  
+  for obj in response['Contents']:
     # Extract filename from 'Key' attribute
     filename = obj['Key']
     print(filename)
     image_names.append(filename)
-    return image_names
+  
+  return image_names
 
 @uploads_bp.route('/imagenss3/<filename>')
 def uploaded_file_s3(filename):
