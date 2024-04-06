@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Images</title>
+</head>
+<body>
+    <h1>Uploaded Images</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <h2>{{ message }}</h2>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    {% if images %}
+        <ul>
+            {% for image in images %}
+                <li><a href="{{image}}">{{ image }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No images uploaded yet.</p>
+    {% endif %}
+    <br>
+    <a href="{{url_for('dashboard.dashboard_page')}}">[Home]</a>
+</body>
+</html>
