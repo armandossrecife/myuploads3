@@ -60,7 +60,7 @@ def uploaded_images():
     return render_template('uploads/uploaded_images.html', images=images)
 
 def list_bucket_images(bucket_name):
-  response = s3.list_objects_v2(Bucket=bucket_name)
+  response = s3.list_objects_v2(Bucket=bucket_name, MaxKeys=20)
   image_names = []
   for obj in response.get('Contents', []):
     # Extract filename from 'Key' attribute
