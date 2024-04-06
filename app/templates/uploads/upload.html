@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload de Imagem</title>
+</head>
+<body>
+    <h1>Faz upload de uma imagem</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for message in messages %}
+            <h2>{{ message }}</h2>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" enctype="multipart/form-data">
+        <label for="file">Image File:</label>
+        <input type="file" name="file" id="file">
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+    <br>
+    <a href="{{url_for('dashboard.dashboard_page')}}">[Home]</a>
+</body>
+</html>
